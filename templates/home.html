@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <p class="display-4">Hello, {{ user.username }}</p>
+        <p>{{ user.email }}</p>
+        <p>{{ user.first_name }}</p>
+        <p>{{ user.last_name }}</p>
+        <p>{{ user.is_active }}</p>
+        <p>{{ user.is_staff }}</p>
+        <p>{{ user.groups }}</p>
+        <p>{{ user.user_permissions }}</p>
+        <a class="lead" href="{% url 'logout' %}">Log out</a>
+    {% else %}
+        <a class="lead" href="{% url 'login' %}">Log in</a>
+    {% endif %}
+</body>
+</html>
